@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "matieres",
+  "collectionName": "sous_matieres",
   "info": {
-    "singularName": "matiere",
-    "pluralName": "matieres",
-    "displayName": "matiere",
+    "singularName": "sous-matiere",
+    "pluralName": "sous-matieres",
+    "displayName": "Sous-matiere",
     "description": ""
   },
   "options": {
@@ -26,11 +26,14 @@
         "audios"
       ]
     },
-    "sous_matieres": {
+    "matiere": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sous-matiere.sous-matiere",
-      "mappedBy": "matiere"
+      "relation": "manyToOne",
+      "target": "api::matiere.matiere",
+      "inversedBy": "sous_matieres"
+    },
+    "actionType": {
+      "type": "string"
     }
   }
 }

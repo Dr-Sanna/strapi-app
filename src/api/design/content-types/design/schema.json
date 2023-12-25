@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "matieres",
+  "collectionName": "designs",
   "info": {
-    "singularName": "matiere",
-    "pluralName": "matieres",
-    "displayName": "matiere",
+    "singularName": "design",
+    "pluralName": "designs",
+    "displayName": "design",
     "description": ""
   },
   "options": {
@@ -25,12 +25,6 @@
         "videos",
         "audios"
       ]
-    },
-    "sous_matieres": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sous-matiere.sous-matiere",
-      "mappedBy": "matiere"
     }
   }
 }
