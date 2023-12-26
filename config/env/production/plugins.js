@@ -1,5 +1,8 @@
-upload: {
-    config: {
+    // ~/strapi-aws-s3/backend/config/plugins.js
+    
+    module.exports = ({ env }) => ({
+          upload: {
+            config: {
       provider: 'aws-s3',
       providerOptions: {
         accessKeyId: env('DO_SPACE_ACCESS_KEY'),
@@ -14,5 +17,6 @@ upload: {
         uploadStream: {},
         delete: {},
       },
-    },
-  },
+            },
+          },
+    });
