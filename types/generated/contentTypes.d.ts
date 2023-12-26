@@ -362,6 +362,145 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiDesignDesign extends Schema.CollectionType {
+  collectionName: 'designs';
+  info: {
+    singularName: 'design';
+    pluralName: 'designs';
+    displayName: 'design';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::design.design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::design.design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLiensUtileLiensUtile extends Schema.CollectionType {
+  collectionName: 'liens_utiles';
+  info: {
+    singularName: 'liens-utile';
+    pluralName: 'liens-utiles';
+    displayName: 'Liens-utile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    url: Attribute.String;
+    description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::liens-utile.liens-utile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::liens-utile.liens-utile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMatiereMatiere extends Schema.CollectionType {
+  collectionName: 'matieres';
+  info: {
+    singularName: 'matiere';
+    pluralName: 'matieres';
+    displayName: 'matiere';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    image: Attribute.Media;
+    sous_matieres: Attribute.Relation<
+      'api::matiere.matiere',
+      'oneToMany',
+      'api::sous-matiere.sous-matiere'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::matiere.matiere',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::matiere.matiere',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSousMatiereSousMatiere extends Schema.CollectionType {
+  collectionName: 'sous_matieres';
+  info: {
+    singularName: 'sous-matiere';
+    pluralName: 'sous-matieres';
+    displayName: 'Sous-matiere';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    image: Attribute.Media;
+    matiere: Attribute.Relation<
+      'api::sous-matiere.sous-matiere',
+      'manyToOne',
+      'api::matiere.matiere'
+    >;
+    actionType: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sous-matiere.sous-matiere',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sous-matiere.sous-matiere',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -768,145 +907,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiDesignDesign extends Schema.CollectionType {
-  collectionName: 'designs';
-  info: {
-    singularName: 'design';
-    pluralName: 'designs';
-    displayName: 'design';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    titre: Attribute.String;
-    image: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::design.design',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::design.design',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiLiensUtileLiensUtile extends Schema.CollectionType {
-  collectionName: 'liens_utiles';
-  info: {
-    singularName: 'liens-utile';
-    pluralName: 'liens-utiles';
-    displayName: 'Liens-utile';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    titre: Attribute.String;
-    url: Attribute.String;
-    description: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::liens-utile.liens-utile',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::liens-utile.liens-utile',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMatiereMatiere extends Schema.CollectionType {
-  collectionName: 'matieres';
-  info: {
-    singularName: 'matiere';
-    pluralName: 'matieres';
-    displayName: 'matiere';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    titre: Attribute.String;
-    image: Attribute.Media;
-    sous_matieres: Attribute.Relation<
-      'api::matiere.matiere',
-      'oneToMany',
-      'api::sous-matiere.sous-matiere'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::matiere.matiere',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::matiere.matiere',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSousMatiereSousMatiere extends Schema.CollectionType {
-  collectionName: 'sous_matieres';
-  info: {
-    singularName: 'sous-matiere';
-    pluralName: 'sous-matieres';
-    displayName: 'Sous-matiere';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    titre: Attribute.String;
-    image: Attribute.Media;
-    matiere: Attribute.Relation<
-      'api::sous-matiere.sous-matiere',
-      'manyToOne',
-      'api::matiere.matiere'
-    >;
-    actionType: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::sous-matiere.sous-matiere',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::sous-matiere.sous-matiere',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -917,6 +917,10 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::design.design': ApiDesignDesign;
+      'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
+      'api::matiere.matiere': ApiMatiereMatiere;
+      'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -925,10 +929,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::design.design': ApiDesignDesign;
-      'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
-      'api::matiere.matiere': ApiMatiereMatiere;
-      'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }
   }
 }
