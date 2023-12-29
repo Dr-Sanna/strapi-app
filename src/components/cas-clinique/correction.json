@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_cas_clinique_corrections",
+  "info": {
+    "displayName": "correction",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "correction": {
+      "type": "text"
+    }
+  }
+}

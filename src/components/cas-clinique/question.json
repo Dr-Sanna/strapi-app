@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_test_questions",
+  "info": {
+    "displayName": "question",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    }
+  }
+}

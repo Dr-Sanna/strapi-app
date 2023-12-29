@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cas_cliniques",
+  "info": {
+    "singularName": "cas-clinique",
+    "pluralName": "cas-cliniques",
+    "displayName": "Cas-Clinique",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "enonce": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "question": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cas-clinique.question"
+    },
+    "correction": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cas-clinique.correction"
+    },
+    "sous_matiere": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sous-matiere.sous-matiere"
+    }
+  }
+}

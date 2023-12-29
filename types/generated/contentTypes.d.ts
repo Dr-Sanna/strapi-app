@@ -768,6 +768,46 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
+  collectionName: 'cas_cliniques';
+  info: {
+    singularName: 'cas-clinique';
+    pluralName: 'cas-cliniques';
+    displayName: 'Cas-Clinique';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    enonce: Attribute.Text;
+    image: Attribute.Media;
+    question: Attribute.Component<'cas-clinique.question', true>;
+    correction: Attribute.Component<'cas-clinique.correction', true>;
+    sous_matiere: Attribute.Relation<
+      'api::cas-clinique.cas-clinique',
+      'oneToOne',
+      'api::sous-matiere.sous-matiere'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::cas-clinique.cas-clinique',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::cas-clinique.cas-clinique',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDesignDesign extends Schema.CollectionType {
   collectionName: 'designs';
   info: {
@@ -925,6 +965,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::cas-clinique.cas-clinique': ApiCasCliniqueCasClinique;
       'api::design.design': ApiDesignDesign;
       'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
       'api::matiere.matiere': ApiMatiereMatiere;
