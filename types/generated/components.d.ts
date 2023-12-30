@@ -5,9 +5,10 @@ export interface CasCliniqueCorrection extends Schema.Component {
   info: {
     displayName: 'correction';
     icon: 'file';
+    description: '';
   };
   attributes: {
-    correction: Attribute.Text;
+    correction: Attribute.RichText;
   };
 }
 
