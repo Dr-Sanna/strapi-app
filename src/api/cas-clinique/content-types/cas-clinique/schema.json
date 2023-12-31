@@ -15,9 +15,6 @@
     "titre": {
       "type": "string"
     },
-    "enonce": {
-      "type": "text"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -43,6 +40,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::sous-matiere.sous-matiere"
+    },
+    "enonce": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

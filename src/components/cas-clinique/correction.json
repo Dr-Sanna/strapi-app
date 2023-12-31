@@ -8,7 +8,12 @@
   "options": {},
   "attributes": {
     "correction": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

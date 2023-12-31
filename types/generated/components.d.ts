@@ -8,7 +8,14 @@ export interface CasCliniqueCorrection extends Schema.Component {
     description: '';
   };
   attributes: {
-    correction: Attribute.RichText;
+    correction: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'light';
+        }
+      >;
   };
 }
 
@@ -20,7 +27,14 @@ export interface CasCliniqueQuestion extends Schema.Component {
     description: '';
   };
   attributes: {
-    question: Attribute.Text;
+    question: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'light';
+        }
+      >;
   };
 }
 

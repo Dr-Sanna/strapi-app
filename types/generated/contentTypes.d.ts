@@ -781,7 +781,6 @@ export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
   };
   attributes: {
     titre: Attribute.String;
-    enonce: Attribute.Text;
     image: Attribute.Media;
     question: Attribute.Component<'cas-clinique.question', true>;
     correction: Attribute.Component<'cas-clinique.correction', true>;
@@ -790,6 +789,14 @@ export interface ApiCasCliniqueCasClinique extends Schema.CollectionType {
       'oneToOne',
       'api::sous-matiere.sous-matiere'
     >;
+    enonce: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'light';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
