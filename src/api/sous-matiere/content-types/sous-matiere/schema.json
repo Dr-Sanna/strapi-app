@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -33,7 +33,11 @@
       "inversedBy": "sous_matieres"
     },
     "actionType": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "cas_cliniques",
+        "liens_utiles"
+      ]
     }
   }
 }

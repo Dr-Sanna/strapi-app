@@ -32,7 +32,7 @@ export interface CasCliniqueQuestion extends Schema.Component {
         'plugin::ckeditor.CKEditor',
         {
           output: 'Markdown';
-          preset: 'light';
+          preset: 'standard';
         }
       >;
   };

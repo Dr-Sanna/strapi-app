@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -45,7 +45,7 @@
       "type": "customField",
       "options": {
         "output": "Markdown",
-        "preset": "light"
+        "preset": "standard"
       },
       "customField": "plugin::ckeditor.CKEditor"
     }
