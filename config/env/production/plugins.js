@@ -1,5 +1,6 @@
 module.exports = ({env}) => ({
   // ...
+
   upload: {
     config: {
       provider: "strapi-provider-upload-do",
@@ -11,6 +12,8 @@ module.exports = ({env}) => ({
         directory: "media", // optional
       }
     },
+
+
   },
   // ...
 })

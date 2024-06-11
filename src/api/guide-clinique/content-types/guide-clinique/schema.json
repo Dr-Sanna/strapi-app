@@ -1,14 +1,14 @@
 {
   "kind": "collectionType",
-  "collectionName": "cas_cliniques",
+  "collectionName": "guide_cliniques",
   "info": {
-    "singularName": "cas-clinique",
-    "pluralName": "cas-cliniques",
-    "displayName": "Cas-Clinique",
+    "singularName": "guide-clinique",
+    "pluralName": "guide-cliniques",
+    "displayName": "Guide-clinique",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -52,13 +52,14 @@
     "indexMatiere": {
       "type": "enumeration",
       "enum": [
-        "MOCO"
+        "Guide clinique d'odontologie"
       ]
     },
     "indexSousMatiere": {
       "type": "enumeration",
       "enum": [
-        "Cas cliniques du CNECO"
+        "Bilans sanguins",
+        "Risque infectieux"
       ]
     }
   }

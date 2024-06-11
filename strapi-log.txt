@@ -1,0 +1,17 @@
+
+> strapi-app@0.1.0 develop
+> strapi develop
+
+- Building build context
+
+[INFO] Including the following ENV variables as part of the JS bundle:
+    - ADMIN_PATH
+    - STRAPI_ADMIN_BACKEND_URL
+    - STRAPI_TELEMETRY_DISABLED
+√ Building build context (107ms)
+- Creating admin
+√ Creating admin (13533ms)
+- Loading Strapi
+[ERROR]  There seems to be an unexpected error, try again with --debug for more information 
+
+┌──────────────────────────────────────────────────────────────────────────────┐│                                                                              ││   Error: Error regarding strapi-algolia config: Algolia plugin               ││   configuration error: apiKey is a required field                            ││   at applyUserConfig (E:\Documents E\Application web\strapi-app\node_modul   ││   es\@strapi\strapi\dist\core\loaders\plugins\index.js:66:15)                ││   at async Object.loadPlugins (E:\Documents E\Application web\strapi-app\n   ││   ode_modules\@strapi\strapi\dist\core\loaders\plugins\index.js:98:3)        ││   at async Strapi.loadPlugins (E:\Documents E\Application                    ││   web\strapi-app\node_modules\@strapi\strapi\dist\Strapi.js:310:5)           ││   at async Promise.all (index 3)                                             ││   at async Strapi.register (E:\Documents E\Application                       ││   web\strapi-app\node_modules\@strapi\strapi\dist\Strapi.js:340:5)           ││   at async Strapi.load (E:\Documents E\Application                           ││   web\strapi-app\node_modules\@strapi\strapi\dist\Strapi.js:424:5)           ││   at async Object.develop (E:\Documents E\Application web\strapi-app\node_   ││   modules\@strapi\admin\dist\_chunks\index-ffd2f664.js:1245:28)              ││   at async develop (E:\Documents E\Application web\strapi-app\node_modules   ││   \@strapi\admin\dist\_chunks\develop-da585b1e.js:52:5)                      ││   at async Command.parseAsync (E:\Documents E\Application                    ││   web\strapi-app\node_modules\commander\lib\command.js:923:5)                ││   at async Module.runStrapiCommand (E:\Documents E\Application               ││   web\strapi-app\node_modules\@strapi\strapi\dist\commands\index.js:124:3)   ││                                                                              │└──────────────────────────────────────────────────────────────────────────────┘
