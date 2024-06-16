@@ -1,14 +1,14 @@
 {
   "kind": "collectionType",
-  "collectionName": "guide_cliniques",
+  "collectionName": "odontologie_pediatriques",
   "info": {
-    "singularName": "guide-clinique",
-    "pluralName": "guide-cliniques",
-    "displayName": "Guide-clinique",
+    "singularName": "odontologie-pediatrique",
+    "pluralName": "odontologie-pediatriques",
+    "displayName": "Odontologie pédiatrique",
     "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -26,6 +26,14 @@
         "audios"
       ]
     },
+    "enonce": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
     "question": {
       "type": "component",
       "repeatable": true,
@@ -41,26 +49,27 @@
       "relation": "oneToOne",
       "target": "api::sous-matiere.sous-matiere"
     },
-    "enonce": {
-      "type": "customField",
-      "options": {
-        "output": "Markdown",
-        "preset": "rich"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
-    },
     "indexMatiere": {
       "type": "enumeration",
       "enum": [
-        "Guide clinique d'odontologie"
+        "Odontologie pédiatrique"
       ]
     },
     "indexSousMatiere": {
       "type": "enumeration",
       "enum": [
-        "Bilans sanguins",
-        "Risque infectieux",
-        "Risque hémorragique"
+        "Thérapeutiques pulpaires des DT"
+      ]
+    },
+    "Carousel": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     }
   }

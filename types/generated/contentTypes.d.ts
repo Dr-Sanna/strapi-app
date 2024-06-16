@@ -848,7 +848,7 @@ export interface ApiGuideCliniqueGuideClinique extends Schema.CollectionType {
       >;
     indexMatiere: Attribute.Enumeration<["Guide clinique d'odontologie"]>;
     indexSousMatiere: Attribute.Enumeration<
-      ['Bilans sanguins', 'Risque infectieux']
+      ['Bilans sanguins', 'Risque infectieux', 'Risque h\u00E9morragique']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -936,6 +936,108 @@ export interface ApiMatiereMatiere extends Schema.CollectionType {
   };
 }
 
+export interface ApiMedecineOraleMedecineOrale extends Schema.CollectionType {
+  collectionName: 'medecine_orales';
+  info: {
+    singularName: 'medecine-orale';
+    pluralName: 'medecine-orales';
+    displayName: 'M\u00E9decine orale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    image: Attribute.Media;
+    enonce: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    question: Attribute.Component<'cas-clinique.question', true>;
+    correction: Attribute.Component<'cas-clinique.correction', true>;
+    sous_matiere: Attribute.Relation<
+      'api::medecine-orale.medecine-orale',
+      'oneToOne',
+      'api::sous-matiere.sous-matiere'
+    >;
+    indexMatiere: Attribute.Enumeration<['MOCO']>;
+    indexSousMatiere: Attribute.Enumeration<['M\u00E9decine orale']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::medecine-orale.medecine-orale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::medecine-orale.medecine-orale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOdontologiePediatriqueOdontologiePediatrique
+  extends Schema.CollectionType {
+  collectionName: 'odontologie_pediatriques';
+  info: {
+    singularName: 'odontologie-pediatrique';
+    pluralName: 'odontologie-pediatriques';
+    displayName: 'Odontologie p\u00E9diatrique';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titre: Attribute.String;
+    image: Attribute.Media;
+    enonce: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    question: Attribute.Component<'cas-clinique.question', true>;
+    correction: Attribute.Component<'cas-clinique.correction', true>;
+    sous_matiere: Attribute.Relation<
+      'api::odontologie-pediatrique.odontologie-pediatrique',
+      'oneToOne',
+      'api::sous-matiere.sous-matiere'
+    >;
+    indexMatiere: Attribute.Enumeration<['Odontologie p\u00E9diatrique']>;
+    indexSousMatiere: Attribute.Enumeration<
+      ['Th\u00E9rapeutiques pulpaires des DT']
+    >;
+    Carousel: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::odontologie-pediatrique.odontologie-pediatrique',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::odontologie-pediatrique.odontologie-pediatrique',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSousMatiereSousMatiere extends Schema.CollectionType {
   collectionName: 'sous_matieres';
   info: {
@@ -955,7 +1057,9 @@ export interface ApiSousMatiereSousMatiere extends Schema.CollectionType {
       'manyToOne',
       'api::matiere.matiere'
     >;
-    actionType: Attribute.Enumeration<['cas_cliniques', 'liens_utiles']>;
+    actionType: Attribute.Enumeration<
+      ['cas_cliniques', 'liens_utiles', 'cours']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -996,6 +1100,8 @@ declare module '@strapi/types' {
       'api::guide-clinique.guide-clinique': ApiGuideCliniqueGuideClinique;
       'api::liens-utile.liens-utile': ApiLiensUtileLiensUtile;
       'api::matiere.matiere': ApiMatiereMatiere;
+      'api::medecine-orale.medecine-orale': ApiMedecineOraleMedecineOrale;
+      'api::odontologie-pediatrique.odontologie-pediatrique': ApiOdontologiePediatriqueOdontologiePediatrique;
       'api::sous-matiere.sous-matiere': ApiSousMatiereSousMatiere;
     }
   }

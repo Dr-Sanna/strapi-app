@@ -36,7 +36,8 @@
       "type": "enumeration",
       "enum": [
         "cas_cliniques",
-        "liens_utiles"
+        "liens_utiles",
+        "cours"
       ]
     }
   }

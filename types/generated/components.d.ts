@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CasCliniqueCarousel extends Schema.Component {
+  collectionName: 'components_cas_clinique_carousels';
+  info: {
+    displayName: 'Carousel';
+    description: '';
+  };
+  attributes: {
+    Carousel: Attribute.Media;
+  };
+}
+
 export interface CasCliniqueCorrection extends Schema.Component {
   collectionName: 'components_cas_clinique_corrections';
   info: {
@@ -41,6 +52,7 @@ export interface CasCliniqueQuestion extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'cas-clinique.carousel': CasCliniqueCarousel;
       'cas-clinique.correction': CasCliniqueCorrection;
       'cas-clinique.question': CasCliniqueQuestion;
     }

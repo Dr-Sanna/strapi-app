@@ -24,14 +24,17 @@ module.exports = ({ env }) => ({
           ],
         },
         {
-          name: 'api::liens-utile.liens-utile',
+          name: 'api::odontologie-pediatrique.odontologie-pediatrique',
           populate: {
-            fields: ['id', 'titre', 'url', 'description'],
+            fields: ['id', 'titre', 'enonce', 'sousmatiere', 'indexMatiere'],
           },
           hideFields: [
+            'image', // Cache les champs volumineux
             'createdAt',
             'updatedAt',
             'publishedAt',
+            'question',
+            'correction',
           ],
         },
         {
